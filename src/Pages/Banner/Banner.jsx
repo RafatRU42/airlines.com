@@ -5,7 +5,7 @@ import bgairplane from '../../assets/image/airplane.jpg'
 const Banner = () => {
     return (
         <div>
-            <div className={`hero bg-[url(${bgairplane})]`}>
+            <div className='hero' >
   <div className="hero-content flex-col lg:flex-row-reverse">
     <img src={airplane} className="max-w-sm rounded-lg shadow-2xl" />
     <div>
