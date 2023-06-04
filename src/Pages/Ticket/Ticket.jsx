@@ -16,18 +16,18 @@ const Ticket = () => {
 {/* </div> */}
 
 
-        <section className='mt-40 flex' style={{background:`url(${bgImage})`}}>
+        <section className='lg:mt-40 flex mx-auto ml-5 rounded md:ml-0 lg:ml-0' style={{background:`url(${bgImage})`}}>
             
-            <div className='w-1/3'>
+            <div className='lg:w-1/3 md:w-2/1 hidden lg:flex'>
                 <img className='-mt-40' src={pilot} alt="" />
             </div>
 
-            <div className='w-1/3'>
+            <div className='lg:w-1/3 w-full p-6 '>
                 <h2 className='mt-8 text-2xl text-bold text-white'>Discover the Real Value of Travel.</h2>
                 <p className='text-white italic mt-5'>Wishing you a safe journey and relaxing holiday when you arrive. May your journey free from stress and bring you some safety. Safe travels.</p>
             </div>
-            <div className='w-1/3'>
-            <img className='-mt-20  h-full w-full' src={airplane} alt="" />
+            <div className='lg:w-1/3 hidden lg:flex'>
+            <img className='-mt-20  h-full w-full ' src={airplane} alt="" />
             </div>
 
         </section>

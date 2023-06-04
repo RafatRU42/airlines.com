@@ -1,6 +1,8 @@
 import Banner from "../Banner/Banner";
+import Contract from "../Contract/Contract";
 import InfoCards from "../InfoCard/InfoCards";
 import Services from "../Service/Services";
+import Testimonials from "../Testimonial/Testimonials";
 import Ticket from "../Ticket/Ticket";
 
 const Home = () => {
@@ -10,6 +12,9 @@ const Home = () => {
             <InfoCards></InfoCards>
             <Services></Services>
             <Ticket></Ticket>
+            <Testimonials></Testimonials>
+            <Contract></Contract>
+            
         </div>
     );
 };
