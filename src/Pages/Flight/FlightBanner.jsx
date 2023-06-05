@@ -1,22 +1,24 @@
-import airplane from '../../assets/image/airplane.jpg'
+import airplane from "../../assets/image/airplane.jpg";
+import { DayPicker } from "react-day-picker";
+import { format } from "date-fns";
 
-const FlightBanner = () => {
+const FlightBanner = ({selectedDate,setSelectedDate}) => {
+
   return (
     <div>
-      <div className="hero">
+      <div className="md:hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img
-            src={airplane}
-            className="max-w-sm rounded-lg shadow-2xl"
-          />
-          <div>
-            <h1 className="text-5xl font-bold">Box Office News!</h1>
-            <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+          <img src={airplane} className="max-w-sm rounded-lg shadow-2xl" />
+          <div className="md:mr-20">
+            <DayPicker
+              mode="single"
+              selected={selectedDate}
+              onSelect={setSelectedDate}
+            ></DayPicker>
+            <p className="text-secondary">
+              You selected the Depart Date:{" "}
+              <span className="font-bold">{format(selectedDate, "PP")}</span>
             </p>
-            <button className="btn btn-primary">Get Started</button>
           </div>
         </div>
       </div>
