@@ -1,39 +1,39 @@
-
-
-const AvailableFlight = ({selectedDate,flightData,setBookingData}) => {
-
-   console.log('1',flightData);
-
-   const handleFlight = () =>{
-    setBookingData(flightData)
-    window.my_modal_2.showModal()
-   }
+const AvailableFlight = ({ selectedDate, flightData, setBookingData }) => {
+  const handleFlight = () => {
+    setBookingData(flightData);
+    window.my_modal_2.showModal();
+  };
 
   return (
-<div className="mx-auto">
-<div className="my-10 ">
-      <div className="card w-96 bg-base-100 shadow-xl">
-        <div className="card-body">
-          <h2 className="text-secondary font-bold text-xl text-center">{flightData.name}</h2>
-          <p>{flightData.slots.length > 0 ? flightData.slots[0] : 'Try Another Day'}</p>
+    <div className="mx-auto">
+      <div className="my-10 ">
+        <div className="card w-96 bg-base-100 shadow-xl">
+          <div className="card-body">
+            <h2 className="text-secondary font-bold text-xl text-center">
+              {flightData.name}
+            </h2>
+            <p>
+              {flightData.slots.length > 0
+                ? flightData.slots[0]
+                : "Try Another Day"}
+            </p>
 
-          <p>{flightData.slots.length && flightData.slots.length} Spaces Abailable</p>
-          <div className="card-actions justify-end">
-
-<button className="btn btn-secondary bg-gradient-to-r from-primary to-secondary w-full text-white font-bold" onClick={handleFlight}>open modal</button>
-
-
-          {/*  */}
-
-            {/* <button  >
-        Book This Flight
-      </button> */}
-
+            <p>
+              {flightData.slots.length && flightData.slots.length} Spaces
+              Abailable
+            </p>
+            <div className="card-actions justify-end">
+              <button
+                className="btn btn-secondary bg-gradient-to-r from-primary to-secondary w-full text-white font-bold"
+                onClick={handleFlight}
+              >
+                Book This Flight
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
-</div>
   );
 };
 

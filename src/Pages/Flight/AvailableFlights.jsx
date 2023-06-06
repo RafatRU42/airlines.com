@@ -6,7 +6,6 @@ import AvailableFlight from "./AvailableFlight";
 const AvailableFlights = ({selectedDate,setBookingData}) => {
 
     const [availableFlight, setAvailableFlight] = useState([])
-    console.log('ava',availableFlight);
 
     useEffect(() =>{
         fetch('AvailableFlight.json')

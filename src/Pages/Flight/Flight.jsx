@@ -7,7 +7,6 @@ const Flight = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showComponent, setShowComponent] = useState(false)
   const [bookingData,setBookingData] = useState(null)
-  console.log('book',bookingData);
 
   const handleClick = () =>{
     setShowComponent(true)
@@ -31,14 +30,10 @@ const Flight = () => {
             }
 
 
-                {/* {bookingData &&
-            <BookingModal bookingData = {bookingData}></BookingModal>
-
-                } */}
 
                     {bookingData &&
                         
-                        <BookingModal bookingData={bookingData}></BookingModal>}
+                        <BookingModal selectedDate = {selectedDate} bookingData={bookingData}></BookingModal>}
 
         </div>
     );
