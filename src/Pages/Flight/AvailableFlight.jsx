@@ -1,8 +1,13 @@
 
 
-const AvailableFlight = ({selectedDate,flightData}) => {
+const AvailableFlight = ({selectedDate,flightData,setBookingData}) => {
 
-   
+   console.log('1',flightData);
+
+   const handleFlight = () =>{
+    setBookingData(flightData)
+    window.my_modal_2.showModal()
+   }
 
   return (
 <div className="mx-auto">
@@ -14,7 +19,16 @@ const AvailableFlight = ({selectedDate,flightData}) => {
 
           <p>{flightData.slots.length && flightData.slots.length} Spaces Abailable</p>
           <div className="card-actions justify-end">
-            <button className="btn btn-secondary w-full text-white font-bold">Book This Flight</button>
+
+<button className="btn btn-secondary bg-gradient-to-r from-primary to-secondary w-full text-white font-bold" onClick={handleFlight}>open modal</button>
+
+
+          {/*  */}
+
+            {/* <button  >
+        Book This Flight
+      </button> */}
+
           </div>
         </div>
       </div>

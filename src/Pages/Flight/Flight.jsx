@@ -1,10 +1,13 @@
 import { useState } from "react";
 import FlightBanner from "./FlightBanner";
 import AvailableFlights from "./AvailableFlights";
+import BookingModal from "../BookingModal/BookingModal";
 
 const Flight = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [showComponent, setShowComponent] = useState(false)
+  const [bookingData,setBookingData] = useState(null)
+  console.log('book',bookingData);
 
   const handleClick = () =>{
     setShowComponent(true)
@@ -23,9 +26,19 @@ const Flight = () => {
             {
                 showComponent &&   
 
-            <AvailableFlights selectedDate={selectedDate}></AvailableFlights>
+            <AvailableFlights setBookingData = {setBookingData} selectedDate={selectedDate}></AvailableFlights>
 
             }
+
+
+                {/* {bookingData &&
+            <BookingModal bookingData = {bookingData}></BookingModal>
+
+                } */}
+
+                    {bookingData &&
+                        
+                        <BookingModal bookingData={bookingData}></BookingModal>}
 
         </div>
     );
