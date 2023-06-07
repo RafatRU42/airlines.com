@@ -33,7 +33,7 @@ const Flight = () => {
 
                     {bookingData &&
                         
-                        <BookingModal selectedDate = {selectedDate} bookingData={bookingData}></BookingModal>}
+                        <BookingModal selectedDate={selectedDate} bookingData={bookingData}></BookingModal>}
 
         </div>
     );

@@ -7,12 +7,35 @@ const BookingModal = ({ bookingData, selectedDate }) => {
 
   const date = format(selectedDate, "PP");
 
+
+  const handleSubmit = event =>{
+    event.preventDefault()
+    const form = event.target;
+    const slot = form.slot.value;
+    const name = form.name.value;
+    const email= form.email.value;
+    const number = form.number.value
+
+
+    const bookingInfo = {
+      flightData: date,
+      slot,
+      customerName: name,
+      customerEmail:email,
+      phoneNumber: number,
+    }
+
+    console.log(bookingInfo);
+
+  }
+
+
   return (
     <div>
 
       <dialog id="my_modal_2" className="modal">
 
-        <form method="dialog" className="modal-box">
+        <form onSubmit={handleSubmit} method="dialog" className="modal-box">
       <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 
           <h3 className="font-bold text-lg text-center text-secondary">
@@ -26,26 +49,35 @@ const BookingModal = ({ bookingData, selectedDate }) => {
               placeholder={date}
               className="input input-bordered input-success w-full"
             />
-            <select className="select select-bordered select-success w-full ">
+            <select name="slot" className="select select-bordered select-success w-full ">
               {
-                slots.map(data =>    
+                slots.map((data,i) =>    
                   
-              <option key={data.id} value={data}>{data}</option>
+              <option key={i} value={data}>{data}</option>
                   
                   
                   )
               }
             </select>
             <input
+              name='name'
               type="text"
               required
               placeholder="Your Name"
               className="input input-bordered input-success w-full"
             />
             <input
+              name='email'
               type="email"
               required
-              placeholder="Your Email"
+              placeholder="Email Address"
+              className="input input-bordered input-success w-full"
+            />
+            <input
+              name='number'
+              type="number"
+              required
+              placeholder="Phone Number"
               className="input input-bordered input-success w-full"
             />
           </div>

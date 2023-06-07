@@ -19,13 +19,14 @@ const AvailableFlight = ({ selectedDate, flightData, setBookingData }) => {
             </p>
 
             <p>
-              {flightData.slots.length && flightData.slots.length} Spaces
+              {flightData.slots.length && flightData.slots.length } {flightData.slots.length > 1 ?'Spaces ':'Space '}
               Abailable
             </p>
             <div className="card-actions justify-end">
               <button
                 className="btn btn-secondary bg-gradient-to-r from-primary to-secondary w-full text-white font-bold"
                 onClick={handleFlight}
+                disabled= {flightData.slots.length === 0}
               >
                 Book This Flight
               </button>
