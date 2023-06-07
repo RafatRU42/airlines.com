@@ -1,20 +1,38 @@
 import { useForm } from "react-hook-form";
-import image from "../../assets/image/image-22.jpg";
+import image from "../../assets/image/Wavy_Bus-10_Single-03.jpg";
 import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
-const Login = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
 
-  const onSubmit = (data) => {
-    console.log("data", data);
-  };
+const SignUp = () => {
 
-  return (
-    <div className="flex items-center my-8">
+
+
+    const {createUser} = useContext(AuthContext)
+
+    const { register, handleSubmit, formState: { errors } } = useForm();
+
+    const onSubmit = (data) => {
+      console.log("data", data);
+      const email = data.email;
+      const password = data.password
+      console.log('object',email,password);
+      createUser(email,password)
+      .then(result =>{
+        console.log(result);
+      })
+      .catch(err =>{
+        console.log(err);
+      })
+    };
+    return (
+        <div>
+             <div className="flex items-center md:-my-12 my-0">
       <div className="w-full md:w-1/2">
         <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl shadow-xl">
           <h1 className="text-2xl font-bold text-center text-secondary">
-            Login
+            Sign Up
           </h1>
           <form
             onSubmit={handleSubmit(onSubmit)}
@@ -33,13 +51,25 @@ const Login = () => {
               {errors.name && <span className="text-red-500">Name is required</span>}
             </div>
             <div className="space-y-1 text-sm">
+              <label className="block dark:text-gray-400">Email</label>
+              <input
+                {...register("email", { required: 'Email is Required'  })}
+                type="email"
+                id="email"
+                placeholder="Email"
+                className="input input-bordered input-success w-full"
+              />
+
+              {errors.name && <span className="text-red-500">Name is required</span>}
+            </div>
+            <div className="space-y-1 text-sm">
               <label className="block dark:text-gray-400">Password</label>
               <input
                 {...register("password", {
                   
                   required: 'Password Is Required',
-                  minLength: {value: 6, message:'Password Must Be 6 Characters or Longer'}
-                
+                  minLength: {value: 6, message:'Password Must Be 6 Characters or Longer'},
+                  pattern: {value:/(?=.*[A-Z])(?=.*[0-9])/,message:'Use Uppercase And Number'}                
                 } )}
                 type="password"
                 name="password"
@@ -57,7 +87,7 @@ const Login = () => {
               </div>
             </div>
             <button className="btn btn-secondary w-full mt-5 text-white">
-              Sign in
+              Sign Up
             </button>
           </form>
           <div className="flex items-center pt-4 space-x-1">
@@ -97,17 +127,18 @@ const Login = () => {
             </button>
           </div>
           <p className="text-xs text-center sm:px-6 dark:text-gray-400">
-            Don't have an account?
-            <Link className="text-success font-bold" to={'/signup'}> Sign Up</Link>
+           Already Have an Account?
+            <Link className="text-success font-bold" to={'/login'}> Login</Link>
           </p>
         </div>
       </div>
 
-      <div className="w-1/2 -ml-20 hidden md:flex">
+      <div className="w-1/2 h-1/2 hidden md:flex">
         <img src={image} alt="" />
       </div>
     </div>
-  );
+        </div>
+    );
 };
 
-export default Login;
+export default SignUp;
