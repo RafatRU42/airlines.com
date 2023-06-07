@@ -1,12 +1,30 @@
 import { useForm } from "react-hook-form";
 import image from "../../assets/image/image-22.jpg";
 import { Link } from "react-router-dom";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
 
+  const [loginError,setLoginError] = useState('')
+
+
+  const {login} = useContext(AuthContext)
+
   const onSubmit = (data) => {
     console.log("data", data);
+    setLoginError('')
+
+    login(data.email,data.password)
+    .then(result =>{
+      console.log(result);
+
+    })
+    .catch(err =>{
+      console.log(err);
+      setLoginError(err.message)
+    })
   };
 
   return (
@@ -23,10 +41,10 @@ const Login = () => {
             <div className="space-y-1 text-sm">
               <label className="block dark:text-gray-400">Username</label>
               <input
-                {...register("name", { required: 'Username is Required'  })}
-                type="text"
-                id="username"
-                placeholder="Username"
+                {...register("email", { required: 'Email is Required'  })}
+                type="email"
+                id="Email"
+                placeholder="Email"
                 className="input input-bordered input-success w-full"
               />
 
@@ -54,6 +72,11 @@ const Login = () => {
                 <a rel="noopener noreferrer" href="#">
                   Forgot Password?
                 </a>
+              </div>
+
+
+              <div >
+                  <p className="text-red-500">{loginError && loginError}</p>
               </div>
             </div>
             <button className="btn btn-secondary w-full mt-5 text-white">
