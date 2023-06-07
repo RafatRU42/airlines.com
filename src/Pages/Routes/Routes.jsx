@@ -4,6 +4,7 @@ import Home from "../Home/Home";
 import Login from "../Login/Login";
 import Flight from "../Flight/Flight";
 import SignUp from "../SignUp/SignUp";
+import Dashboard from "../Dashboard/Dashboard/Dashboard";
 
 export const router = createBrowserRouter([
     {path:'/',element:<Main></Main>,children:[
@@ -13,5 +14,8 @@ export const router = createBrowserRouter([
         {path:'/flight',element:<Flight></Flight>},
         {path:'/signup',element:<SignUp></SignUp>},
 
-    ]}
+    ]},
+
+    {path:'/dashboard', element:<Dashboard></Dashboard>},
+    
 ])

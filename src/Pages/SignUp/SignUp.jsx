@@ -1,29 +1,49 @@
 import { useForm } from "react-hook-form";
 import image from "../../assets/image/Wavy_Bus-10_Single-03.jpg";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 
 const SignUp = () => {
 
 
 
-    const {createUser} = useContext(AuthContext)
+    const {createUser,updateUser} = useContext(AuthContext)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
+    const [signUpError,setSignUpError] = useState('')
 
     const onSubmit = (data) => {
+
+        setSignUpError('')
+
       console.log("data", data);
       const email = data.email;
-      const password = data.password
-      console.log('object',email,password);
+      const name = data.name;
+      const password = data.password;
+
+     
+
+
       createUser(email,password)
       .then(result =>{
-        console.log(result);
+        console.log(result)
+        const userInfo = {
+            displayName: name
+          }
+        updateUser(userInfo)
+        .then(res => {
+            console.log(res)
+            
+        })
+        .catch(err => {console.log('object',err);})
+        toast.success('You Successfully Register An Account')
       })
       .catch(err =>{
         console.log(err);
+        setSignUpError(err.message)
       })
     };
     return (
@@ -85,6 +105,11 @@ const SignUp = () => {
                   Forgot Password?
                 </a>
               </div>
+
+                <div>
+                    {signUpError && <p className="text-red-500">{signUpError}</p>}
+                </div>
+
             </div>
             <button className="btn btn-secondary w-full mt-5 text-white">
               Sign Up

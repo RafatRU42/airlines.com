@@ -3,6 +3,7 @@ import image from "../../assets/image/image-22.jpg";
 import { Link } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
+import { toast } from "react-hot-toast";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
@@ -19,7 +20,7 @@ const Login = () => {
     login(data.email,data.password)
     .then(result =>{
       console.log(result);
-
+      toast.success('You Successfully Logged In')
     })
     .catch(err =>{
       console.log(err);
