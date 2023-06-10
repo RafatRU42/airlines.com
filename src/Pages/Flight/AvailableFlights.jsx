@@ -1,19 +1,27 @@
 import { format } from "date-fns";
 import { useEffect, useState } from "react";
 import AvailableFlight from "./AvailableFlight";
+import { useQuery } from "react-query";
+import Spinner from "../Shared/Spinner/Spinner";
 
 
 const AvailableFlights = ({selectedDate,setBookingData}) => {
 
-    const [availableFlight, setAvailableFlight] = useState([])
+    // const [availableFlight, setAvailableFlight] = useState([])
 
-    useEffect(() =>{
-        fetch('AvailableFlight.json')
-        .then(res => res.json())
-        .then(data => setAvailableFlight(data))
+    const date = format(selectedDate,'PP')
 
-    },[])
 
+  const {data:availableFlight=[],isLoading} = useQuery({
+    queryKey:['availableFlight',date],
+    queryFn:() => fetch(`http://localhost:5000/availableFlight?date=${date}`)
+    .then(res =>res.json())
+
+  })
+
+  if(isLoading){
+    return <Spinner></Spinner>
+  }
 
    
 

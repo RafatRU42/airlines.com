@@ -5,17 +5,19 @@ import Login from "../Login/Login";
 import Flight from "../Flight/Flight";
 import SignUp from "../SignUp/SignUp";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
+import PrivateRoute from "./PrivateRoute/PrivateRoute";
 
 export const router = createBrowserRouter([
     {path:'/',element:<Main></Main>,children:[
 
         {path:'/',element:<Home></Home>},
         {path:'/login',element:<Login></Login>},
-        {path:'/flight',element:<Flight></Flight>},
+        {path:'/flight',element:<PrivateRoute><Flight></Flight></PrivateRoute>},
         {path:'/signup',element:<SignUp></SignUp>},
+    {path:'/dashboard', element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>},
+
 
     ]},
 
-    {path:'/dashboard', element:<Dashboard></Dashboard>},
     
 ])

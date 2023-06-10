@@ -1,6 +1,5 @@
 [
     {
-      "_id": 1,
       "name": "Economy Class Flights",
       "slots": [
         "09.00 AM - 9.30 AM"
@@ -9,7 +8,6 @@
       ]
     },
     {
-      "_id": 2,
       "name": "Premium Economy Class Flights",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -29,7 +27,6 @@
       ]
     },
     {
-      "_id": 3,
       "name": "Business Class Flights",
       "slots": [
        
@@ -41,7 +38,6 @@
       ]
     },
     {
-      "_id": 4,
       "name": "Main Cabin",
       "slots": [
         "08.00 AM - 08.30 AM",
@@ -75,7 +71,6 @@
       ]
     },
     {
-      "_id": 6,
       "name": "Delta Comfort",
       "slots": [
         "08.00 AM - 08.30 AM",

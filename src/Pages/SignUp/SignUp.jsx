@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import image from "../../assets/image/Wavy_Bus-10_Single-03.jpg";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
@@ -9,7 +9,7 @@ import { toast } from "react-hot-toast";
 const SignUp = () => {
 
 
-
+    const navigate = useNavigate()
     const {createUser,updateUser} = useContext(AuthContext)
 
     const { register, handleSubmit, formState: { errors } } = useForm();
@@ -30,6 +30,7 @@ const SignUp = () => {
       createUser(email,password)
       .then(result =>{
         console.log(result)
+        navigate('/')
         const userInfo = {
             displayName: name
           }

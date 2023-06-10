@@ -1,12 +1,16 @@
 import { useForm } from "react-hook-form";
 import image from "../../assets/image/image-22.jpg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 
 const Login = () => {
   const { register, handleSubmit, formState: { errors } } = useForm();
+  const location = useLocation()
+  const navigate = useNavigate()
+
+  const from = location.state?.from?.pathname || "/";
 
   const [loginError,setLoginError] = useState('')
 
@@ -21,6 +25,7 @@ const Login = () => {
     .then(result =>{
       console.log(result);
       toast.success('You Successfully Logged In')
+      navigate(from, { replace: true });
     })
     .catch(err =>{
       console.log(err);

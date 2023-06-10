@@ -1,7 +1,15 @@
 import { format } from "date-fns";
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
+import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 const BookingModal = ({ bookingData, selectedDate }) => {
   console.log("modal", bookingData);
+  const navigate = useNavigate()
+
+  const {user} = useContext(AuthContext)
+  console.log('user',user);
 
   const {slots,id,name} = bookingData;
 
@@ -12,21 +20,40 @@ const BookingModal = ({ bookingData, selectedDate }) => {
     event.preventDefault()
     const form = event.target;
     const slot = form.slot.value;
-    const name = form.name.value;
+    const customerName = form.name.value;
     const email= form.email.value;
     const number = form.number.value
 
 
     const bookingInfo = {
-      flightData: date,
+      flightDate: date,
       slot,
-      customerName: name,
+      customerName: customerName,
+      flightClass: name,
       customerEmail:email,
       phoneNumber: number,
     }
 
     console.log(bookingInfo);
+    fetch('http://localhost:5000/bookings',{
+      method:'POST',
+      headers:{'content-type': 'application/json'},
+      body:JSON.stringify(bookingInfo)
+    })
+    .then(res => res.json())
+    .then(data => {
+      if(data.acknowledged){
+        toast.success('You Successfully Book A Flight!!')
+        navigate('/')
 
+      }
+      else{
+        toast.error(data.message)
+        navigate('/')
+
+      }
+     
+    })
   }
 
 
@@ -62,14 +89,15 @@ const BookingModal = ({ bookingData, selectedDate }) => {
             <input
               name='name'
               type="text"
-              required
-              placeholder="Your Name"
+              defaultValue={user && user.displayName}
+              disabled
               className="input input-bordered input-success w-full"
             />
             <input
               name='email'
               type="email"
-              required
+              disabled
+              defaultValue={user && user.email}
               placeholder="Email Address"
               className="input input-bordered input-success w-full"
             />

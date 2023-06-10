@@ -1,14 +1,23 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
-import 'react-day-picker/dist/style.css';
-import AuthProvider from './context/AuthProvider.jsx';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import App from "./App.jsx";
+import "./index.css";
+import "react-day-picker/dist/style.css";
+import AuthProvider from "./context/AuthProvider.jsx";
+import {
+  
+  QueryClient,
+  QueryClientProvider,
+} from "react-query";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AuthProvider>
-    <App />
-    </AuthProvider>
-  </React.StrictMode>,
-)
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <App />
+      </AuthProvider>
+    </QueryClientProvider>
+  </React.StrictMode>
+);
