@@ -6,6 +6,7 @@ import Flight from "../Flight/Flight";
 import SignUp from "../SignUp/SignUp";
 import Dashboard from "../Dashboard/Dashboard/Dashboard";
 import PrivateRoute from "./PrivateRoute/PrivateRoute";
+import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 
 export const router = createBrowserRouter([
     {path:'/',element:<Main></Main>,children:[
@@ -14,10 +15,15 @@ export const router = createBrowserRouter([
         {path:'/login',element:<Login></Login>},
         {path:'/flight',element:<PrivateRoute><Flight></Flight></PrivateRoute>},
         {path:'/signup',element:<SignUp></SignUp>},
-    {path:'/dashboard', element:<PrivateRoute><Dashboard></Dashboard></PrivateRoute>},
 
 
     ]},
+
+    //Dashboard Layout =>
+
+    {path:'/dashboard',element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,children:[
+        {path:'/dashboard',element:<Dashboard></Dashboard>}
+    ]}
 
     
 ])
