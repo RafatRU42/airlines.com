@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Link, Outlet } from "react-router-dom";
 import Navbar from "../../Pages/Shared/Navbar/Navbar";
 const DashboardLayout = () => {
   return (
@@ -16,10 +16,10 @@ const DashboardLayout = () => {
           <ul className="menu p-4 w-80 h-full text-base-content">
             {/* Sidebar content here */}
             <li>
-              <a>Sidebar Item 1</a>
+              <Link to={'/dashboard'}>My Bookings</Link>
             </li>
             <li>
-              <a>Sidebar Item 2</a>
+            <Link to={'/dashboard/allUsers'}>All Users</Link>
             </li>
           </ul>
         </div>
