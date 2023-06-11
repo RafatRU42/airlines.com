@@ -3,6 +3,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { stringify } from "postcss";
 
 const BookingModal = ({ bookingData, selectedDate }) => {
   console.log("modal", bookingData);
@@ -55,6 +56,7 @@ const BookingModal = ({ bookingData, selectedDate }) => {
      
     })
   }
+
 
 
   return (

@@ -4,33 +4,43 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
+import useToken from "../../hooks/useToken";
 
 const Login = () => {
-  const { register, handleSubmit, formState: { errors } } = useForm();
-  const location = useLocation()
-  const navigate = useNavigate()
-
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [loginEmail, setLoginEmail] = useState("");
   const from = location.state?.from?.pathname || "/";
+  const [loginError, setLoginError] = useState("");
+  const { login } = useContext(AuthContext);
 
-  const [loginError,setLoginError] = useState('')
+  const [token] = useToken(loginEmail);
+
+  if (token) {
+    return navigate(from, { replace: true });
+  }
 
 
-  const {login} = useContext(AuthContext)
 
   const onSubmit = (data) => {
     console.log("data", data);
-    setLoginError('')
+    setLoginError("");
 
-    login(data.email,data.password)
-    .then(result =>{
-      console.log(result);
-      toast.success('You Successfully Logged In')
-      navigate(from, { replace: true });
-    })
-    .catch(err =>{
-      console.log(err);
-      setLoginError(err.message)
-    })
+    login(data.email, data.password)
+      .then((result) => {
+        console.log(result);
+        toast.success("You Successfully Logged In");
+        setLoginEmail(data.email);
+      })
+      .catch((err) => {
+        console.log(err);
+        setLoginError(err.message);
+      });
   };
 
   return (
@@ -47,24 +57,27 @@ const Login = () => {
             <div className="space-y-1 text-sm">
               <label className="block dark:text-gray-400">Username</label>
               <input
-                {...register("email", { required: 'Email is Required'  })}
+                {...register("email", { required: "Email is Required" })}
                 type="email"
                 id="Email"
                 placeholder="Email"
                 className="input input-bordered input-success w-full"
               />
 
-              {errors.name && <span className="text-red-500">Name is required</span>}
+              {errors.name && (
+                <span className="text-red-500">Name is required</span>
+              )}
             </div>
             <div className="space-y-1 text-sm">
               <label className="block dark:text-gray-400">Password</label>
               <input
                 {...register("password", {
-                  
-                  required: 'Password Is Required',
-                  minLength: {value: 6, message:'Password Must Be 6 Characters or Longer'}
-                
-                } )}
+                  required: "Password Is Required",
+                  minLength: {
+                    value: 6,
+                    message: "Password Must Be 6 Characters or Longer",
+                  },
+                })}
                 type="password"
                 name="password"
                 id="password"
@@ -72,7 +85,11 @@ const Login = () => {
                 className="input input-bordered input-success w-full"
               />
 
-              {errors.password && <span className="text-red-500">{errors?.password?.message}</span>}
+              {errors.password && (
+                <span className="text-red-500">
+                  {errors?.password?.message}
+                </span>
+              )}
 
               <div className="flex justify-end text-xs dark:text-gray-400">
                 <a rel="noopener noreferrer" href="#">
@@ -80,9 +97,8 @@ const Login = () => {
                 </a>
               </div>
 
-
-              <div >
-                  <p className="text-red-500">{loginError && loginError}</p>
+              <div>
+                <p className="text-red-500">{loginError && loginError}</p>
               </div>
             </div>
             <button className="btn btn-secondary w-full mt-5 text-white">
@@ -127,7 +143,10 @@ const Login = () => {
           </div>
           <p className="text-xs text-center sm:px-6 dark:text-gray-400">
             Don't have an account?
-            <Link className="text-success font-bold" to={'/signup'}> Sign Up</Link>
+            <Link className="text-success font-bold" to={"/signup"}>
+              {" "}
+              Sign Up
+            </Link>
           </p>
         </div>
       </div>

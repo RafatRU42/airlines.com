@@ -9,7 +9,11 @@ const Dashboard = () => {
   const { data = [] } = useQuery({
     queryKey: ["usersBooking", email],
     queryFn: () =>
-      fetch(`http://localhost:5000/usersBooking?email=${email}`).then((res) =>
+      fetch(`http://localhost:5000/usersBooking?email=${email}`,{
+        headers:{
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+      }).then((res) =>
         res.json()
       ),
   });
