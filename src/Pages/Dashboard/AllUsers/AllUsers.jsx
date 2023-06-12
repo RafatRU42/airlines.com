@@ -3,19 +3,32 @@ import { useQuery } from "react-query";
 const AllUsers = () => {
 
 
-    const {data=[],isLoading} = useQuery({
+    const {data=[],isLoading,refetch} = useQuery({
         queryKey:['allUsers'],
         queryFn:() =>fetch('http://localhost:5000/allUsers')
         .then(res=> res.json())
        
     })
-    console.log('daafafa',data);
+
+    console.log('object',data);
 
     // fetch('http://localhost:5000/allUsers')
     // .then(res => res.json())
     // .then(data => {
     //     console.log('users data', data);
     // })
+
+    const handleAdmin = id =>{
+    console.log('id',id);
+    fetch(`http://localhost:5000/users/admin/${id}`,{
+      method:'PUT'
+    })
+    .then(res => res.json())
+    .then(data => {
+      console.log('put',data);
+      refetch()
+    })
+    }
 
     return (
         <div>
@@ -27,8 +40,8 @@ const AllUsers = () => {
         
         <th>Name</th>
         <th>Email</th>
-        <th>Favorite Color</th>
-        <th>Favorite Color</th>
+        <th>Admin</th>
+        <th>Delete User</th>
       </tr>
     </thead>
 
@@ -39,8 +52,8 @@ const AllUsers = () => {
             <tr key={users._id}>
             <th>{users.name}</th>
             <td>{users.email}</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
+            <td><button onClick={()=>handleAdmin(users._id)} className={`btn btn-secondary btn-sm text-white ${users?.role && 'hidden'}`}>Make Admin</button></td>
+            <td><button className="btn btn-error btn-sm text-white">Delete User</button></td>
           </tr>
             )
       }
