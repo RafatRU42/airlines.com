@@ -1,5 +1,6 @@
 import Banner from "../Banner/Banner";
 import Contract from "../Contract/Contract";
+import FAQ from "../FAQ/FAQ";
 import InfoCards from "../InfoCard/InfoCards";
 import Services from "../Service/Services";
 import Testimonials from "../Testimonial/Testimonials";
@@ -11,6 +12,8 @@ const Home = () => {
             <Banner></Banner>
             <InfoCards></InfoCards>
             <Services></Services>
+            <FAQ></FAQ>
+
             <Ticket></Ticket>
             <Testimonials></Testimonials>
             <Contract></Contract>

@@ -11,9 +11,9 @@ const AddOffer = () => {
   const onSubmit = (data) => {
     const type= data.type;
     const title = data.title;
-    const specialty = data.specialty;
+    const condition = data.condition;
     const description = data.description;
-    console.log('offerInfo', type,title,specialty,description);
+    console.log('offerInfo', type,title,condition,description);
     console.log('click1');
     
 
@@ -31,7 +31,7 @@ const AddOffer = () => {
         const offerInfo = {
           type,
           title,
-          specialty,
+          condition,
           description,
           image:data.data.url
 
@@ -108,10 +108,10 @@ const AddOffer = () => {
               </div>
               <div className="space-y-1 text-sm">
                 <input
-                  {...register("specialty", )}
+                  {...register("condition", )}
                   type="text"
-                  name="specialty"
-                  placeholder="Specialty Of This Offer"
+                  name="condition"
+                  placeholder="Terms & Conditions Of This Offer"
                   className="w-full px-4 py-3 rounded-md input input-bordered input-success "
                 />
               </div>

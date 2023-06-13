@@ -10,6 +10,8 @@ import DashboardLayout from "../../Layout/DashboardLayout/DashboardLayout";
 import AllUsers from "../Dashboard/AllUsers/AllUsers";
 import AdminRoute from "./AdminRoute/AdminRoute";
 import AddOffer from "../Dashboard/AddOffer/AddOffer";
+import OfferLayOut from "../OfferLayOut/OfferLayOut";
+import AllOffers from "../OfferLayOut/AllOffers";
 
 export const router = createBrowserRouter([
     {path:'/',element:<Main></Main>,children:[
@@ -28,7 +30,14 @@ export const router = createBrowserRouter([
         {path:'/dashboard',element:<Dashboard></Dashboard>},
         {path:'/dashboard/allUsers',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
         {path:'/dashboard/addOffer',element:<AdminRoute><AddOffer></AddOffer></AdminRoute>},
-    ]}
+    ]},
+
+
+    //Offer Layout =>
+
+    {path:'/offer',element:<OfferLayOut></OfferLayOut>,children:[{
+        path:'/offer/allOffers',element:<AllOffers></AllOffers>
+    }]}
 
     
 ])
