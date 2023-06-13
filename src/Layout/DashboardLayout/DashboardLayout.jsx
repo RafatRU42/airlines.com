@@ -29,6 +29,12 @@ const DashboardLayout = () => {
 
                 }
             </li>
+            <li>
+                {
+                  isAdmin &&  <Link to={'/dashboard/addOffer'}>Add Offer</Link>
+
+                }
+            </li>
           </ul>
         </div>
       </div>

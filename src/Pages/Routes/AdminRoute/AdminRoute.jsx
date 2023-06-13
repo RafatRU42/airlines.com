@@ -7,16 +7,21 @@ import { Navigate } from "react-router-dom";
 const AdminRoute = ({children}) => {
     const {user,loading} = useContext(AuthContext)
     const [isAdmin] = useAdmin(user.email)
+    console.log('admin', isAdmin);
 
     if(loading){
         return <Spinner></Spinner>
     }
     
     if(isAdmin){
-        return children
+        return children;
     }
 
-    return <Navigate to={'/login'} state={{from:location}} replace></Navigate>
+    // if(!isAdmin){
+    //     return <Navigate to="/login" state={{ from: location }} replace></Navigate>
+
+    // }
+
 };
 
 export default AdminRoute;

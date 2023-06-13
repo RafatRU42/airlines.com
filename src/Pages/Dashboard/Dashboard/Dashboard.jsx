@@ -1,12 +1,13 @@
 import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../context/AuthProvider";
+import Spinner from "../../Shared/Spinner/Spinner";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
   const email = user.email;
 
-  const { data = [] } = useQuery({
+  const { data = [], isLoading } = useQuery({
     queryKey: ["usersBooking", email],
     queryFn: () =>
       fetch(`http://localhost:5000/usersBooking?email=${email}`,{
@@ -18,6 +19,11 @@ const Dashboard = () => {
       ),
   });
   console.log("data", data);
+
+
+  if(isLoading){
+    return <Spinner></Spinner>
+  }
 
   return (
     <div>
@@ -35,7 +41,9 @@ const Dashboard = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((user,i) => (
+            { data &&
+            
+            data?.map((user) => (
              
                 <tr key={user._id}>
                   <th>{user.customerName}</th>
