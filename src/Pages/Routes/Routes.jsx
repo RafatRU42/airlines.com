@@ -12,6 +12,7 @@ import AdminRoute from "./AdminRoute/AdminRoute";
 import AddOffer from "../Dashboard/AddOffer/AddOffer";
 import OfferLayOut from "../OfferLayOut/OfferLayOut";
 import AllOffers from "../OfferLayOut/AllOffers";
+import ManageOffer from "../OfferLayOut/ManageOffer";
 
 export const router = createBrowserRouter([
     {path:'/',element:<Main></Main>,children:[
@@ -36,8 +37,10 @@ export const router = createBrowserRouter([
     //Offer Layout =>
 
     {path:'/offer',element:<OfferLayOut></OfferLayOut>,children:[{
-        path:'/offer/allOffers',element:<AllOffers></AllOffers>
-    }]}
+        path:'/offer/allOffers',element:<AdminRoute><AllOffers></AllOffers></AdminRoute>
+    },
+    {path:'/offer/manageOffer',element:<AdminRoute><ManageOffer></ManageOffer></AdminRoute>}
+]}
 
     
 ])

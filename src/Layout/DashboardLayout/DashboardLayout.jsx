@@ -35,6 +35,12 @@ const DashboardLayout = () => {
 
                 }
             </li>
+            <li>
+                {
+                  isAdmin &&  <Link to={'/offer/manageOffer'}>Manage Offer</Link>
+
+                }
+            </li>
           </ul>
         </div>
       </div>
