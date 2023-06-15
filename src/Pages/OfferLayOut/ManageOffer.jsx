@@ -1,9 +1,10 @@
 import { useQuery } from "react-query";
 import Spinner from "../Shared/Spinner/Spinner";
+import { toast } from "react-hot-toast";
 
 const ManageOffer = () => {
 
-    const {data=[], isLoading} = useQuery({
+    const {data=[], isLoading,refetch} = useQuery({
         queryKey:['manageOffer'],
         queryFn: () => fetch('http://localhost:5000/allOffers/selected')
         .then(res =>res.json())
@@ -14,8 +15,20 @@ const ManageOffer = () => {
     }
 
 
-    const handleDelete = id =>{
-        console.log('id',id);
+    const handleDelete = (id,type) =>{
+      fetch(`http://localhost:5000/allOffers/selected/${id}`,{
+        method:'DELETE',
+        headers:{
+          authorization: `bearer ${localStorage.getItem('accessToken')}`
+        }
+      })
+      .then(res => res.json())
+      .then(data => {
+        console.log('deleted',data);
+        refetch()
+        toast(`${type} Deleted Successfully`)
+      })
+        
     }
 
     return (
@@ -59,7 +72,7 @@ const ManageOffer = () => {
             </td>
            
             <th>
-              <button onClick={()=>handleDelete(offer._id)} className="btn btn-error btn-xs">Delete</button>
+              <button onClick={()=>handleDelete(offer._id,offer.type)} className="btn btn-error btn-xs">Delete</button>
             </th>
           </tr>)
      }

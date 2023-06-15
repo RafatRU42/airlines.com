@@ -13,34 +13,84 @@ import AddOffer from "../Dashboard/AddOffer/AddOffer";
 import OfferLayOut from "../OfferLayOut/OfferLayOut";
 import AllOffers from "../OfferLayOut/AllOffers";
 import ManageOffer from "../OfferLayOut/ManageOffer";
+import Payment from "../Payment/Payment";
+import ErrorPage from "../ErrorPage/ErrorPage";
 
 export const router = createBrowserRouter([
-    {path:'/',element:<Main></Main>,children:[
+  {
+    path: "/",
+    element: <Main></Main>,
+    errorElement:<ErrorPage></ErrorPage>,
+    children: [
+      { path: "/", element: <Home></Home> },
+      { path: "/login", element: <Login></Login> },
+      {
+        path: "/flight",
+        element: (
+          <PrivateRoute>
+            <Flight></Flight>
+          </PrivateRoute>
+        ),
+      },
+      { path: "/signup", element: <SignUp></SignUp> },
 
-        {path:'/',element:<Home></Home>},
-        {path:'/login',element:<Login></Login>},
-        {path:'/flight',element:<PrivateRoute><Flight></Flight></PrivateRoute>},
-        {path:'/signup',element:<SignUp></SignUp>},
+    ],
+  },
+
+  //Dashboard Layout =>
+
+  {
+    path: "/dashboard",
+    errorElement:<ErrorPage></ErrorPage>,
+    element: (
+      <PrivateRoute>
+        <DashboardLayout></DashboardLayout>
+      </PrivateRoute>
+    ),
+    children: [
+      { path: "/dashboard", element: <Dashboard></Dashboard> },
+      {path: "/dashboard/payment/:id",element:<Payment></Payment>},
+
+      {
+        path: "/dashboard/allUsers",
+        element: (
+          <AdminRoute>
+            <AllUsers></AllUsers>
+          </AdminRoute>
+        ),
+      },
+      {
+        path: "/dashboard/addOffer",
+        element: (
+          <AdminRoute>
+            <AddOffer></AddOffer>
+          </AdminRoute>
+        ),
+      },
+    ],
+  },
 
 
-    ]},
 
-    //Dashboard Layout =>
+  //Offer Layout =>
 
-    {path:'/dashboard',element:<PrivateRoute><DashboardLayout></DashboardLayout></PrivateRoute>,children:[
-        {path:'/dashboard',element:<Dashboard></Dashboard>},
-        {path:'/dashboard/allUsers',element:<AdminRoute><AllUsers></AllUsers></AdminRoute>},
-        {path:'/dashboard/addOffer',element:<AdminRoute><AddOffer></AddOffer></AdminRoute>},
-    ]},
-
-
-    //Offer Layout =>
-
-    {path:'/offer',element:<OfferLayOut></OfferLayOut>,children:[{
-        path:'/offer/allOffers',element:<AdminRoute><AllOffers></AllOffers></AdminRoute>
-    },
-    {path:'/offer/manageOffer',element:<AdminRoute><ManageOffer></ManageOffer></AdminRoute>}
-]}
-
-    
-])
+  {
+    path: "/offer",
+    element: <OfferLayOut></OfferLayOut>,
+    errorElement: <ErrorPage></ErrorPage>,
+    children: [
+      {
+        path: "/offer/allOffers",
+        element: <AllOffers></AllOffers>,
+      },
+      {
+        path: "/offer/manageOffer",
+        element: (
+          <AdminRoute>
+            <ManageOffer></ManageOffer>
+          </AdminRoute>
+        ),
+      },
+    ],
+  },
+]);

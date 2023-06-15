@@ -12,7 +12,7 @@ const BookingModal = ({ bookingData, selectedDate }) => {
   const {user} = useContext(AuthContext)
   console.log('user',user);
 
-  const {slots,id,name} = bookingData;
+  const {slots,name,price} = bookingData;
 
   const date = format(selectedDate, "PP");
 
@@ -33,6 +33,7 @@ const BookingModal = ({ bookingData, selectedDate }) => {
       flightClass: name,
       customerEmail:email,
       phoneNumber: number,
+      price,
     }
 
     console.log(bookingInfo);

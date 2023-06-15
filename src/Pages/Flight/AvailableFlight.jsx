@@ -22,6 +22,7 @@ const AvailableFlight = ({ selectedDate, flightData, setBookingData }) => {
               {flightData.slots.length && flightData.slots.length } {flightData.slots.length > 1 ?'Spaces ':'Space '}
               Abailable
             </p>
+            <p>${flightData.price}</p>
             <div className="card-actions justify-end">
               <button
                 className="btn btn-secondary bg-gradient-to-r from-primary to-secondary w-full text-white font-bold"

@@ -2,6 +2,8 @@ import React, { useContext } from "react";
 import { useQuery } from "react-query";
 import { AuthContext } from "../../../context/AuthProvider";
 import Spinner from "../../Shared/Spinner/Spinner";
+import { Link } from "react-router-dom";
+import Payment from "../../Payment/Payment";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -25,6 +27,8 @@ const Dashboard = () => {
     return <Spinner></Spinner>
   }
 
+ 
+
   return (
     <div>
         <h2 className="text-3xl my-5 font-bold">My Bookings</h2>
@@ -38,6 +42,7 @@ const Dashboard = () => {
               <th>Flight Class</th>
               <th>Flight Date</th>
               <th>Flight Time</th>
+              <th>Payment</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +55,18 @@ const Dashboard = () => {
                   <td>{user.flightClass}</td>
                   <td>{user.flightDate}</td>
                   <td>{user.slot}</td>
+                  <td>
+                  {
+                    user.price && !user.paid && <Link to={`/dashboard/payment/${user._id}`}><button  className="btn btn-success btn-sm">Pay</button></Link>
+                  }
+
+                
+
+                  {
+                    user.price && user.paid && <span className="text-primary">Paid</span>
+                  }
+                  </td>
+                  
                 </tr>
              
             ))}
