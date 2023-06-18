@@ -57,7 +57,7 @@ const Dashboard = () => {
                   <td>{user.slot}</td>
                   <td>
                   {
-                    user.price && !user.paid && <Link to={`/dashboard/payment/${user._id}`}><button  className="btn btn-success btn-sm">Pay</button></Link>
+                    user.price && !user.paid && <Link to={`/dashboard/payment/${user._id}`}><button  className="btn btn-success text-white btn-sm">Pay</button></Link>
                   }
 
                 

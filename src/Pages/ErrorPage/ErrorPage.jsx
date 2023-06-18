@@ -1,11 +1,20 @@
-import { useRouteError } from "react-router-dom";
+import { useNavigate, useRouteError } from "react-router-dom";
 import image from '../../assets/image/car/sad.webp'
+import { useContext } from "react";
+import { AuthContext } from "../../context/AuthProvider";
 
 const ErrorPage = () => {
 
+    const navigate = useNavigate()
     const error = useRouteError();
+    const {logOut} = useContext(AuthContext)
 
-    
+    const handleLogOut = () =>{
+        logOut()
+        .then(result =>{
+            navigate('/login')
+        })
+    }
 
     return (
         <div className="mx-auto">
@@ -14,8 +23,8 @@ const ErrorPage = () => {
             </div>
             <div className="text-center font-bold text-2xl">
                 <p>Something Went Wrong</p>
-                <p>Status Code is {error.status}</p>
-                <p>Sorry!!</p>
+                <p>Status Code is {error.status? error.status : 'Unknown'}</p>
+                <button onClick={handleLogOut} className="btn btn-error my-5 text-white">Log Out</button>
             </div>
         </div>
     );

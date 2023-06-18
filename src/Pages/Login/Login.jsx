@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../hooks/useToken";
+import SmallSpinner from "../Shared/Spinner/SmallSpinner";
 
 const Login = () => {
   const {
@@ -14,6 +15,7 @@ const Login = () => {
   } = useForm();
   const location = useLocation();
   const navigate = useNavigate();
+  const [loading,setLoading] = useState(false)
   const [loginEmail, setLoginEmail] = useState("");
   const from = location.state?.from?.pathname || "/";
   const [loginError, setLoginError] = useState("");
@@ -28,20 +30,23 @@ const Login = () => {
 
 
   const onSubmit = (data) => {
-    console.log("data", data);
+    setLoading(true)
     setLoginError("");
 
     login(data.email, data.password)
       .then((result) => {
-        console.log(result);
+        setLoading(false)
         toast.success("You Successfully Logged In");
         setLoginEmail(data.email);
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false)
         setLoginError(err.message);
       });
   };
+
+
+  
 
   return (
     <div className="flex items-center my-8">
@@ -102,7 +107,7 @@ const Login = () => {
               </div>
             </div>
             <button className="btn btn-secondary w-full mt-5 text-white">
-              Sign in
+                { loading ? <SmallSpinner></SmallSpinner> : 'Sign in'}
             </button>
           </form>
           <div className="flex items-center pt-4 space-x-1">

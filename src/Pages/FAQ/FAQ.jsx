@@ -1,6 +1,8 @@
+import image from '../../assets/image/car/bg-image.jpg'
+
 const FAQ = () => {
   return (
-    <div className="my-20 w-2/3 mx-auto shadow-md p-10 rounded-lg ">
+    <div className={`my-20 w-2/3 mx-auto shadow-md p-10 rounded-lg bg-[url(${image})]`}>
         <p className="text-center font-bold text-3xl my-10">Read our frequently asked questions</p>
       <div className="collapse bg-base-200 my-5 ">
         <input type="checkbox" className="peer" />

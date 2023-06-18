@@ -1,11 +1,17 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useNavigation, useParams } from "react-router-dom";
 import CheckoutForm from "./CheckoutForm/CheckoutForm";
+import Spinner from "../Shared/Spinner/Spinner";
 
 const Payment = () => {
   const [data, setData] = useState({});
+  const navigation = useNavigation()
+
+  if(navigation.state === 'loading'){
+    return <Spinner></Spinner>
+  }
 
   const { id } = useParams();
 
@@ -51,7 +57,7 @@ const Payment = () => {
 
       <div className="w-1/2 my-10">
       <Elements stripe={stripePromise}>
-          <CheckoutForm className='my-10' />
+          <CheckoutForm info= {data}  />
         </Elements>
       </div>
       </div>

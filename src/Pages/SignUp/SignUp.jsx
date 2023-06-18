@@ -10,6 +10,7 @@ const SignUp = () => {
   const navigate = useNavigate();
   const { createUser, updateUser } = useContext(AuthContext);
   const [createdEmail,setCreatedEmail] = useState('')
+  const [loading,setLoading] = useState(false)
 
   const [token] = useToken(createdEmail)
 
@@ -27,6 +28,7 @@ const SignUp = () => {
 
   const onSubmit = (data) => {
     setSignUpError("");
+    setLoading(true)
 
     const email = data.email;
     const name = data.name;
@@ -34,6 +36,7 @@ const SignUp = () => {
 
     createUser(email, password)
       .then((result) => {
+        setLoading(false)
         
         const userInfo = {
           displayName: name,
@@ -50,7 +53,7 @@ const SignUp = () => {
           });
       })
       .catch((err) => {
-        console.log(err);
+        setLoading(false)
         setSignUpError(err.message);
       });
   };

@@ -46,12 +46,12 @@ const BookingModal = ({ bookingData, selectedDate }) => {
     .then(data => {
       if(data.acknowledged){
         toast.success('You Successfully Book A Flight!!')
-        navigate('/')
+        navigate('/dashboard')
 
       }
       else{
         toast.error(data.message)
-        navigate('/')
+        navigate('/dashboard')
 
       }
      
