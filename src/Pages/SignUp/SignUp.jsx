@@ -5,6 +5,8 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../hooks/useToken";
+import SmallSpinner from "../Shared/Spinner/SmallSpinner";
+import { Helmet } from "react-helmet";
 
 const SignUp = () => {
   const navigate = useNavigate();
@@ -77,6 +79,9 @@ const SignUp = () => {
 
   return (
     <div>
+      <Helmet>
+      <title>Airlines.com | Sign Up</title>
+      </Helmet>
       <div className="flex items-center md:-my-12 my-0">
         <div className="w-full md:w-1/2">
           <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl shadow-xl">
@@ -153,7 +158,7 @@ const SignUp = () => {
                 </div>
               </div>
               <button className="btn btn-secondary w-full mt-5 text-white">
-                Sign Up
+                { loading? <SmallSpinner></SmallSpinner> : 'Sign Up'}
               </button>
             </form>
             <div className="flex items-center pt-4 space-x-1">

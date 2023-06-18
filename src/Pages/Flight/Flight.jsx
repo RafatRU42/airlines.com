@@ -2,6 +2,7 @@ import { useState } from "react";
 import FlightBanner from "./FlightBanner";
 import AvailableFlights from "./AvailableFlights";
 import BookingModal from "../BookingModal/BookingModal";
+import { Helmet } from "react-helmet";
 
 const Flight = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -14,6 +15,11 @@ const Flight = () => {
 
     return (
         <div>
+
+          <Helmet>
+          <title>Airlines.com | Flight</title>
+
+          </Helmet>
 
             <FlightBanner selectedDate={selectedDate} setSelectedDate={setSelectedDate}></FlightBanner>
 

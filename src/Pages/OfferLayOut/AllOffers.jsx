@@ -1,6 +1,7 @@
 import { isDateAfterType } from "react-day-picker";
 import { useQuery } from "react-query";
 import FAQ from "../FAQ/FAQ";
+import { Helmet } from "react-helmet";
 
 const AllOffers = () => {
   const { data = [], isLoading } = useQuery({
@@ -18,6 +19,11 @@ const AllOffers = () => {
 
   return (
 <div className="">
+
+    <Helmet>
+      <title>Airlines.com | Offers</title>
+    </Helmet>
+
     <h2 className="text-2xl font-bold text-center my-10">These Offers For You!!</h2>
 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-3 ">
       {data.map((offer) => (

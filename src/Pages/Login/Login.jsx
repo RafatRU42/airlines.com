@@ -6,6 +6,7 @@ import { AuthContext } from "../../context/AuthProvider";
 import { toast } from "react-hot-toast";
 import useToken from "../../hooks/useToken";
 import SmallSpinner from "../Shared/Spinner/SmallSpinner";
+import { Helmet } from "react-helmet";
 
 const Login = () => {
   const {
@@ -49,7 +50,13 @@ const Login = () => {
   
 
   return (
-    <div className="flex items-center my-8">
+    <div>
+
+    <Helmet>
+      <title>Airlines.com | Login</title>
+    </Helmet>
+
+      <div className="flex items-center my-8">
       <div className="w-full md:w-1/2">
         <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl shadow-xl">
           <h1 className="text-2xl font-bold text-center text-secondary">
@@ -60,7 +67,7 @@ const Login = () => {
             className="space-y-6 ng-untouched ng-pristine ng-valid"
           >
             <div className="space-y-1 text-sm">
-              <label className="block dark:text-gray-400">Username</label>
+              <label className="block dark:text-gray-400">Your Email</label>
               <input
                 {...register("email", { required: "Email is Required" })}
                 type="email"
@@ -159,6 +166,7 @@ const Login = () => {
       <div className="w-1/2 -ml-20 hidden md:flex">
         <img src={image} alt="" />
       </div>
+    </div>
     </div>
   );
 };

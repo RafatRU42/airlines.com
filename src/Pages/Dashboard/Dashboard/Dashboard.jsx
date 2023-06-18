@@ -4,6 +4,7 @@ import { AuthContext } from "../../../context/AuthProvider";
 import Spinner from "../../Shared/Spinner/Spinner";
 import { Link } from "react-router-dom";
 import Payment from "../../Payment/Payment";
+import { Helmet } from "react-helmet";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -31,7 +32,12 @@ const Dashboard = () => {
 
   return (
     <div>
-        <h2 className="text-3xl my-5 font-bold">My Bookings</h2>
+
+    <Helmet>
+      <title>Airlines.com | Dashboard</title>
+    </Helmet>
+
+        <h2 className="text-3xl my-5 font-bold mx-4">My Bookings</h2>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -70,8 +76,15 @@ const Dashboard = () => {
                 </tr>
              
             ))}
+            
+        
           </tbody>
         </table>
+        <div className="mx-auto mx-4">
+        {
+              !data.length && <p className=" text-3xl font-bold  mt-20 ">You have no booking data. To book flight {<Link to={'/flight'}><button className='btn btn-success btn-outline'>Click Here</button></Link>} </p>
+            }
+        </div>
       </div>
     </div>
   );
