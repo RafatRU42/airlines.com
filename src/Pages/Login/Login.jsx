@@ -1,5 +1,5 @@
 import { useForm } from "react-hook-form";
-import image from "../../assets/image/image-22.jpg";
+import image from "../../assets/image/image-22-min.jpg";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProvider";

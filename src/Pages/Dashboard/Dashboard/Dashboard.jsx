@@ -13,7 +13,7 @@ const Dashboard = () => {
   const { data = [], isLoading } = useQuery({
     queryKey: ["usersBooking", email],
     queryFn: () =>
-      fetch(`http://localhost:5000/usersBooking?email=${email}`,{
+      fetch(` https://airlines-server.vercel.app/usersBooking?email=${email}`,{
         headers:{
           authorization: `bearer ${localStorage.getItem('accessToken')}`
         }

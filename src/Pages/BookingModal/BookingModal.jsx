@@ -37,7 +37,7 @@ const BookingModal = ({ bookingData, selectedDate }) => {
     }
 
     console.log(bookingInfo);
-    fetch('http://localhost:5000/bookings',{
+    fetch(' https://airlines-server.vercel.app/bookings',{
       method:'POST',
       headers:{'content-type': 'application/json'},
       body:JSON.stringify(bookingInfo)

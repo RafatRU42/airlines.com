@@ -19,7 +19,7 @@ const Payment = () => {
   console.log("stripe", stripePromise);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/dashboard/payment/${id}`)
+    fetch(` https://airlines-server.vercel.app/dashboard/payment/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log("object", data);

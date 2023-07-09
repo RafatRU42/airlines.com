@@ -7,11 +7,11 @@ const AllOffers = () => {
   const { data = [], isLoading } = useQuery({
     queryKey: ["allOffers"],
     queryFn: () =>
-      fetch("http://localhost:5000/allOffers").then((res) => res.json()),
+      fetch(" https://airlines-server.vercel.app/allOffers").then((res) => res.json()),
   });
   console.log("object", data);
 
-  // fetch('http://localhost:5000/allOffers')
+  // fetch(' https://airlines-server.vercel.app/allOffers')
   // .then(res => res.json())
   // .then(data => {
   //     console.log('object,',data);

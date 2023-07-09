@@ -18,7 +18,7 @@ const AllUsers = () => {
   } = useQuery({
     queryKey: ["allUsers"],
     queryFn: () =>
-      fetch("http://localhost:5000/allUsers").then((res) => res.json()),
+      fetch(" https://airlines-server.vercel.app/allUsers").then((res) => res.json()),
   });
 
   console.log("object", data);
@@ -29,7 +29,7 @@ if(isLoading){
 
   const handleAdmin = (id) => {
     console.log("id", id);
-    fetch(`http://localhost:5000/users/admin/${id}`, {
+    fetch(` https://airlines-server.vercel.app/users/admin/${id}`, {
       method: "PUT",
     })
       .then((res) => res.json())

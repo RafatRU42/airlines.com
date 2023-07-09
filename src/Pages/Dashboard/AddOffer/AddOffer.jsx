@@ -37,7 +37,7 @@ const AddOffer = () => {
 
         };
 
-        fetch('http://localhost:5000/addOffer/admin',{
+        fetch(' https://airlines-server.vercel.app/addOffer/admin',{
           method:'POST',
           headers:{
             'content-type': 'application/json'

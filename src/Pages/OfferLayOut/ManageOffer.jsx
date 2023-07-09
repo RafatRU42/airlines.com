@@ -6,7 +6,7 @@ const ManageOffer = () => {
 
     const {data=[], isLoading,refetch} = useQuery({
         queryKey:['manageOffer'],
-        queryFn: () => fetch('http://localhost:5000/allOffers/selected')
+        queryFn: () => fetch(' https://airlines-server.vercel.app/allOffers/selected')
         .then(res =>res.json())
     })
 
@@ -16,7 +16,7 @@ const ManageOffer = () => {
 
 
     const handleDelete = (id,type) =>{
-      fetch(`http://localhost:5000/allOffers/selected/${id}`,{
+      fetch(` https://airlines-server.vercel.app/allOffers/selected/${id}`,{
         method:'DELETE',
         headers:{
           authorization: `bearer ${localStorage.getItem('accessToken')}`

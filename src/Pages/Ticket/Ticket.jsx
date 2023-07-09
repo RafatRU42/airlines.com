@@ -1,4 +1,3 @@
-import bgImage from '../../assets/image/airplane.jpg'
 import pilot from '../../assets/icons/new-pilot.png'
 import airplane from '../../assets/image/airplane-2.png'
 const Ticket = () => {
@@ -16,7 +15,7 @@ const Ticket = () => {
 {/* </div> */}
 
 
-        <section className='lg:mt-40 flex mx-auto ml-5 rounded md:ml-0 lg:ml-0' style={{background:`url(${bgImage})`}}>
+        <section className='lg:mt-40 flex mx-auto ml-5 rounded md:ml-0 lg:ml-0' style={{background:`url(${'https://i.ibb.co/1rxnchN/airplane.jpg'})`}}>
             
             <div className='lg:w-1/3 md:w-2/1 hidden lg:flex'>
                 <img className='-mt-40' src={pilot} alt="" />

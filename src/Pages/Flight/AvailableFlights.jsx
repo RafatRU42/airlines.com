@@ -14,7 +14,7 @@ const AvailableFlights = ({selectedDate,setBookingData}) => {
 
   const {data:availableFlight=[],isLoading} = useQuery({
     queryKey:['availableFlight',date],
-    queryFn:() => fetch(`http://localhost:5000/availableFlight?date=${date}`)
+    queryFn:() => fetch(` https://airlines-server.vercel.app/availableFlight?date=${date}`)
     .then(res =>res.json())
 
   })

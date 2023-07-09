@@ -15,22 +15,22 @@ const Navbar = () => {
   const menuItems =
 
     <>
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/flight'>Flight</Link></li>
-      <li><Link to='/offer/allOffers'>Offers</Link></li>
-      <li><Link to='/'>Home</Link></li>
+      <li className="mx-1"><Link to='/'>Home</Link></li>
+      <li className="mx-1"><Link to='/flight'>Flight</Link></li>
+      <li className="mx-1"><Link to='/offer/allOffers'>Offers</Link></li>
+      <li className="mx-1"><Link to='/'>Home</Link></li>
         {
           user?.uid ? 
           
           <>
-      <li><Link to={'/dashboard'} >Dashboard</Link></li>
-      <li><Link onClick={handleSignOut} >Log Out</Link></li>
+      <li className="mx-1"><Link to={'/dashboard'} >Dashboard</Link></li>
+      <li className="mx-1"><Link onClick={handleSignOut} >Log Out</Link></li>
           
           </>
           
           :
 
-      <li><Link to='/login'>Login</Link></li>
+      <li className="mx-1"><Link to='/login'>Login</Link></li>
 
         }      
     </>

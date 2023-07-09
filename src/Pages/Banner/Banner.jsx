@@ -1,6 +1,5 @@
 import { Link } from "react-router-dom";
 import airplane from "../../assets/image/airplane-2.png";
-import bgairplane from "../../assets/image/airplane.jpg";
 
 const Banner = () => {
   return (
@@ -11,9 +10,8 @@ const Banner = () => {
           <div>
             <h1 className="text-5xl font-bold">Special Offer Is Going On!</h1>
             <p className="py-6">
-              Provident cupiditate voluptatem et in. Quaerat fugiat ut assumenda
-              excepturi exercitationem quasi. In deleniti eaque aut repudiandae
-              et a id nisi.
+            Open to legal residents
+of 50 United States and the District of Columbia (excluding Alaska, Florida, New York, and Rhode Island) age 19 or older at time of entry. Void where prohibited. Limit one entry per person.
             </p>
             <Link to={'/offer/allOffers'}>
               <button className="btn  btn-primary bg-gradient-to-r from-primary to-secondary text-white">

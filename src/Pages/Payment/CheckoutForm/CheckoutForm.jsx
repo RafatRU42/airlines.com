@@ -18,7 +18,7 @@ const CheckoutForm = ({ info }) => {
 
   useEffect(() => {
     // Create PaymentIntent as soon as the page loads
-    fetch("http://localhost:5000/create-payment-intent", {
+    fetch(" https://airlines-server.vercel.app/create-payment-intent", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -28,7 +28,7 @@ const CheckoutForm = ({ info }) => {
         .then((res) => res.json())
         .then((data) =>{
            setClientSecret(data.clientSecret)
-          console.log('new',data);
+          
           });
 }, [info]);
 
@@ -42,7 +42,7 @@ const CheckoutForm = ({ info }) => {
   const handleSubmit = async (event) => {
     event.preventDefault();
 
-    console.log("clicked");
+ 
 
     if (!stripe || !elements) {
       return
@@ -97,7 +97,7 @@ const CheckoutForm = ({ info }) => {
         transactionId,
       }
     
-      fetch('http://localhost:5000/payment',{
+      fetch(' https://airlines-server.vercel.app/payment',{
         method:'POST',
         headers:{
           'content-type':'application/json'
@@ -119,7 +119,7 @@ const CheckoutForm = ({ info }) => {
   };
 
   return (
-    <div className="my-10">
+    <div className="my-10 ">
       <form onSubmit={handleSubmit}>
         <CardElement
           options={{
