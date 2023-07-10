@@ -15,6 +15,7 @@ import AllOffers from "../OfferLayOut/AllOffers";
 import ManageOffer from "../OfferLayOut/ManageOffer";
 import Payment from "../Payment/Payment";
 import ErrorPage from "../ErrorPage/ErrorPage";
+import OfferDetails from "../OfferLayOut/OfferDetails";
 
 export const router = createBrowserRouter([
   {
@@ -91,6 +92,10 @@ export const router = createBrowserRouter([
           </AdminRoute>
         ),
       },
+      {
+        path:'/offer/offerDetails/:id',
+        element:<OfferDetails></OfferDetails>
+      }
     ],
   },
 ]);

@@ -66,7 +66,7 @@ const BookingModal = ({ bookingData, selectedDate }) => {
       <dialog id="my_modal_2" className="modal">
 
         <form onSubmit={handleSubmit} method="dialog" className="modal-box">
-      <button htmlFor="my-modal-3" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+      <button htmlFor="my-modal-2" className="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
 
           <h3 className="font-bold text-lg text-center text-secondary">
             {name}
@@ -93,8 +93,9 @@ const BookingModal = ({ bookingData, selectedDate }) => {
               name='name'
               type="text"
               defaultValue={user && user.displayName}
-              disabled
+              disabled={user.displayName}
               className="input input-bordered input-success w-full"
+              placeholder="Your Name"
             />
             <input
               name='email'

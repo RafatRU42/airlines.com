@@ -1,6 +1,13 @@
+import { useEffect } from "react";
+
 const AvailableFlight = ({ selectedDate, flightData, setBookingData }) => {
+
+  useEffect(() =>{
+    setBookingData(flightData)
+  },[])
+
   const handleFlight = () => {
-    setBookingData(flightData);
+    // setBookingData(flightData);
     window.my_modal_2.showModal();
   };
 

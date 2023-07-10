@@ -12,6 +12,7 @@ const Flight = () => {
 
   const handleClick = () => {
     setShowComponent(true);
+    
   };
 
   return (
