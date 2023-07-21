@@ -4,9 +4,9 @@ import airplane from "../../assets/image/airplane-2.png";
 const Banner = () => {
   return (
     <div>
-      <div className="md:hero">
+      <div className="md:hero group">
         <div className="hero-content flex-col lg:flex-row-reverse">
-          <img src={airplane} className="md:max-w-xl max-w-sm" />
+          <img src={airplane} className="md:max-w-xl max-w-sm group-hover:scale-110 duration-300" />
           <div>
             <h1 className="text-5xl font-bold">Special Offer Is Going On!</h1>
             <p className="py-6">

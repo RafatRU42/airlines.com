@@ -18,7 +18,6 @@ const Navbar = () => {
       <li className="mx-1"><Link to='/'>Home</Link></li>
       <li className="mx-1"><Link to='/flight'>Flight</Link></li>
       <li className="mx-1"><Link to='/offer/allOffers'>Offers</Link></li>
-      <li className="mx-1"><Link to='/'>Home</Link></li>
         {
           user?.uid ? 
           
