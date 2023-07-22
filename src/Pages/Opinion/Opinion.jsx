@@ -1,9 +1,15 @@
 import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { format } from "date-fns";
+import { toast } from "react-hot-toast";
 
 const Opinion = ({selectedDate}) => {
     const {user} = useContext(AuthContext)
+
+
+	const handleOpinion = () => {
+		toast.success('Thank You for your significant review.')
+	}
 
    
     return (
@@ -22,10 +28,12 @@ const Opinion = ({selectedDate}) => {
 			{/* <p>{format(selectedDate,'PP')}</p> */}
 		</p>
 	</div>
+	<form onSubmit={handleOpinion}>
 	<div className=" text-center my-5">
-    <textarea className="textarea textarea-success w-full" placeholder="Your Opinion"></textarea>
-    <button className="btn btn-outline btn-success mt-4 ">Send</button>
+    <textarea required className="textarea textarea-success w-full" placeholder="Your Opinion"></textarea>
+    <button  className="btn btn-outline btn-success mt-4 ">Send</button>
 	</div>
+	</form>
 	<div className="pt-12 border-t dark:border-gray-700">
 		
 	</div>

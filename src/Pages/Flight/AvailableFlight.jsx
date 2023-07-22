@@ -12,8 +12,8 @@ const AvailableFlight = ({ selectedDate, flightData, setBookingData }) => {
   };
 
   return (
-    <div className="mx-auto">
-      <div className="my-10 ">
+    <div className="mx-auto group">
+      <div className="my-10 group-hover:scale-110 duration-300">
         <div className="card w-96 bg-base-100 shadow-xl">
           <div className="card-body">
             <h2 className="text-secondary font-bold text-xl text-center">

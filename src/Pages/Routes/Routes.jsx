@@ -16,6 +16,7 @@ import ManageOffer from "../OfferLayOut/ManageOffer";
 import Payment from "../Payment/Payment";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import OfferDetails from "../OfferLayOut/OfferDetails";
+import OfferType from "../OfferLayOut/OfferType";
 
 export const router = createBrowserRouter([
   {
@@ -94,8 +95,14 @@ export const router = createBrowserRouter([
       },
       {
         path:'/offer/offerDetails/:id',
-        element:<OfferDetails></OfferDetails>
-      }
+        element:<OfferDetails></OfferDetails>,
+        loader: ({params}) => fetch(`http://localhost:5000/offer/${params.id}`)
+      },
+      {
+        path:'/offer/:type',
+        element:<OfferType></OfferType>,
+        // loader: ({params}) => fetch(`http://localhost:5000/offer/${params.id}`)
+      },
     ],
   },
 ]);
