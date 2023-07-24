@@ -82,7 +82,7 @@ const AddOffer = () => {
                    >
                     
                   <option>Sessional Offers</option>
-                  <option>Student and Youth Offers</option>
+                  <option>Vacation Offers</option>
                   <option>Hotel Offers</option>
                   <option>Car Offers</option>
                   <option>Other Offers</option>

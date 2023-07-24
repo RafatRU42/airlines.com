@@ -16,7 +16,11 @@ import ManageOffer from "../OfferLayOut/ManageOffer";
 import Payment from "../Payment/Payment";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import OfferDetails from "../OfferLayOut/OfferDetails";
-import OfferType from "../OfferLayOut/OfferType";
+import CarOffers from "../OfferLayOut/CarOffers";
+import HotelOffers from "../OfferLayOut/HotelOffers";
+import VacationOffers from "../OfferLayOut/VacationOffers";
+import OtherOffers from "../OfferLayOut/OtherOffers";
+import SessionalOffers from "../OfferLayOut/SessionalOffers";
 
 export const router = createBrowserRouter([
   {
@@ -99,9 +103,24 @@ export const router = createBrowserRouter([
         loader: ({params}) => fetch(`http://localhost:5000/offer/${params.id}`)
       },
       {
-        path:'/offer/:type',
-        element:<OfferType></OfferType>,
-        // loader: ({params}) => fetch(`http://localhost:5000/offer/${params.id}`)
+        path:'/offer/carOffers',
+        element:<CarOffers></CarOffers>
+      },
+      {
+        path:'/offer/hotelOffers',
+        element:<HotelOffers></HotelOffers>
+      },
+      {
+        path:'/offer/vacationOffers',
+        element:<VacationOffers></VacationOffers>
+      },
+      {
+        path:'/offer/otherOffers',
+        element:<OtherOffers></OtherOffers>
+      },
+      {
+        path:'/offer/sessionalOffers',
+        element:<SessionalOffers></SessionalOffers>
       },
     ],
   },
