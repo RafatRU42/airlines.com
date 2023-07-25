@@ -1,20 +1,25 @@
 import { useForm } from "react-hook-form";
 import image from "../../../assets/image/airplane-png-27939.jpg";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
+
 const AddOffer = () => {
   const imageHostKey = import.meta.env.VITE_imgbb_api;
-  // console.log("imagehost", imageHostKey);
+
+
+  const navigate = useNavigate()
+
+
 
   const { register, handleSubmit,  formState: { errors } } = useForm();
-  // const onSubmit = data => console.log('click');
 
   const onSubmit = (data) => {
+
     const type= data.type;
     const title = data.title;
     const condition = data.condition;
     const description = data.description;
-    console.log('offerInfo', type,title,condition,description);
-    console.log('click1');
     
 
     const image = data.image[0];
@@ -47,6 +52,7 @@ const AddOffer = () => {
         .then(res => res.json())
         .then(data => {
           toast.success('Offer Is Added To The Database')
+          navigate('/offer/allOffers')
         })
 
 

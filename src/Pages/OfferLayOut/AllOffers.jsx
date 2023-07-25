@@ -12,7 +12,6 @@ const AllOffers = () => {
     queryFn: () =>
       fetch(" https://airlines-server.vercel.app/allOffers").then((res) => res.json()),
   });
-  console.log("object", data);
 
   // fetch(' https://airlines-server.vercel.app/allOffers')
   // .then(res => res.json())
