@@ -1,8 +1,12 @@
+import { Bounce} from "react-awesome-reveal";
 
 const FAQ = () => {
   return (
     <div className={`my-20 w-2/3 mx-auto shadow-md p-10 rounded-lg`}>
-        <p className="text-center font-bold text-3xl my-10">Read our frequently asked questions</p>
+      <Bounce >
+      <p className="text-center font-bold text-3xl my-10">Read our frequently asked questions</p>
+
+      </Bounce>
       <div className="collapse bg-base-200 my-5 ">
         <input type="checkbox" className="peer" />
         <div className="collapse-title bg-base-200 text-primary-content [input:checked~&]:bg-secondary [input:checked~&]:text-secondary-content">

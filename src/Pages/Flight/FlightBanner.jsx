@@ -8,7 +8,8 @@ const FlightBanner = ({selectedDate,setSelectedDate}) => {
       <div className="md:hero">
         <div className="hero-content flex-col lg:flex-row-reverse">
           <img src='https://i.ibb.co/1rxnchN/airplane.jpg' className="max-w-sm rounded-lg shadow-2xl" />
-          <div className="md:mr-20">
+
+       <div className="md:mr-20">
             <DayPicker
               mode="single"
               selected={selectedDate}

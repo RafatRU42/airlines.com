@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProvider";
 import { useNavigate } from "react-router-dom";
 import Spinner from "../../Shared/Spinner/Spinner";
+import { Zoom } from "react-awesome-reveal";
 
 const AllUsers = () => {
   // const { user } = useContext(AuthContext);
@@ -44,46 +45,48 @@ if(isLoading){
   // }
 
   return (
-    <div>
+   <Zoom>
+     <div>
     
       
-      <div className="overflow-x-auto">
-        <table className="table">
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Email</th>
-              <th>Admin</th>
-              <th>Delete User</th>
-            </tr>
-          </thead>
+    <div className="overflow-x-auto">
+      <table className="table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Admin</th>
+            <th>Delete User</th>
+          </tr>
+        </thead>
 
-          <tbody>
-            {data.map((users) => (
-              <tr key={users._id}>
-                <th>{users.name}</th>
-                <td>{users.email}</td>
-                <td>
-                  <button
-                    onClick={() => handleAdmin(users._id)}
-                    className={`btn btn-secondary btn-sm text-white ${
-                      users?.role && "hidden"
-                    }`}
-                  >
-                    Make Admin
-                  </button>
-                </td>
-                <td>
-                  <button className="btn btn-error btn-sm text-white">
-                    Delete User
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+        <tbody>
+          {data.map((users) => (
+            <tr key={users._id}>
+              <th>{users.name}</th>
+              <td>{users.email}</td>
+              <td>
+                <button
+                  onClick={() => handleAdmin(users._id)}
+                  className={`btn btn-secondary btn-sm text-white ${
+                    users?.role && "hidden"
+                  }`}
+                >
+                  Make Admin
+                </button>
+              </td>
+              <td>
+                <button className="btn btn-error btn-sm text-white">
+                  Delete User
+                </button>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
     </div>
+  </div>
+   </Zoom>
   );
 };
 

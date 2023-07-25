@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import image from "../../../assets/image/airplane-png-27939.jpg";
 import { toast } from "react-hot-toast";
 import { useNavigate } from "react-router-dom";
+import { Fade, JackInTheBox } from "react-awesome-reveal";
 
 
 const AddOffer = () => {
@@ -64,12 +65,16 @@ const AddOffer = () => {
 
   return (
     <div>
-      <h2 className="text-3xl text-center font-bold mt-10  md:-ml-20">
+     <JackInTheBox>
+     <h2 className="text-3xl text-center font-bold mt-10  md:-ml-20">
         Add Getaway Offer
       </h2>
+     </JackInTheBox>
       <div className="flex md:-ml-40  mt-10">
         <div className="w-1/2 hidden md:flex">
-          <img src={image} alt="" />
+         <Fade direction="left">
+         <img src={image} alt="" />
+         </Fade>
         </div>
 
         <div className="mx-auto md:w-1/2 md:ml-10">

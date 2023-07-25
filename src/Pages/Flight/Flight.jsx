@@ -4,6 +4,7 @@ import AvailableFlights from "./AvailableFlights";
 import BookingModal from "../BookingModal/BookingModal";
 import { Helmet } from "react-helmet";
 import Opinion from "../Opinion/Opinion";
+import { Zoom } from "react-awesome-reveal";
 
 const Flight = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
@@ -31,7 +32,9 @@ const Flight = () => {
           className=" w-1/4 btn btn-secondary text-white font-bold mx-auto"
           onClick={handleClick}
         >
-          Search Flight
+        <Zoom>
+        Search Flight
+        </Zoom>
         </button>
       </div>
 

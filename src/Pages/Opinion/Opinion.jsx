@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../../context/AuthProvider";
 import { format } from "date-fns";
 import { toast } from "react-hot-toast";
+import { JackInTheBox, Zoom } from "react-awesome-reveal";
 
 const Opinion = ({selectedDate}) => {
     const {user} = useContext(AuthContext)
@@ -14,10 +15,13 @@ const Opinion = ({selectedDate}) => {
    
     return (
         <div>
-            <p className="text-center font-bold text-success text-3xl mt-20 ">Say Something About Our Services</p>
+           <JackInTheBox>
+		   <p className="text-center font-bold text-success text-3xl mt-20 ">Say Something About Our Services</p>
+		   </JackInTheBox>
 
             <article className="max-w-2xl px-6 py-10 mx-auto space-y-12 ">
-	<div className="w-full mx-auto space-y-4 text-center">
+<Zoom>
+<div className="w-full mx-auto space-y-4 text-center">
 		
 		<h1 className="text-3xl font-bold leadi md:text-4xl">We believe that we have given our customers the best flight services. </h1>
         <p>What about you?</p>
@@ -28,6 +32,7 @@ const Opinion = ({selectedDate}) => {
 			{/* <p>{format(selectedDate,'PP')}</p> */}
 		</p>
 	</div>
+</Zoom>
 	<form onSubmit={handleOpinion}>
 	<div className=" text-center my-5">
     <textarea required className="textarea textarea-success w-full" placeholder="Your Opinion"></textarea>

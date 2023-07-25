@@ -5,6 +5,7 @@ import Spinner from "../../Shared/Spinner/Spinner";
 import { Link } from "react-router-dom";
 import Payment from "../../Payment/Payment";
 import { Helmet } from "react-helmet";
+import { JackInTheBox, Zoom } from "react-awesome-reveal";
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
@@ -37,7 +38,11 @@ const Dashboard = () => {
       <title>Airlines.com | Dashboard</title>
     </Helmet>
 
-        <h2 className="text-3xl my-5 font-bold mx-4">My Bookings</h2>
+      <JackInTheBox>
+      <h2 className="text-3xl my-5 font-bold mx-4">My Bookings</h2>
+
+      </JackInTheBox>
+      <Zoom>
       <div className="overflow-x-auto">
         <table className="table">
           {/* head */}
@@ -86,6 +91,7 @@ const Dashboard = () => {
             }
         </div>
       </div>
+      </Zoom>
     </div>
   );
 };

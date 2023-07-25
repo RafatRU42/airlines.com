@@ -1,3 +1,4 @@
+import { Zoom } from 'react-awesome-reveal';
 import image1 from '../../assets/image/people1.png'
 import image2 from '../../assets/image/people2.png'
 import image3 from '../../assets/image/people3.png'
@@ -13,10 +14,15 @@ const Testimonials = () => {
 
     return (
         <div>
-            <div className="text-center mt-20">
-                <h2 className="text-2xl font-bold text-secondary">Testimonial</h2>
-                <p className="text-xl italic">What Our Customers Says About Us</p>
-            </div>
+       <Zoom>
+       <div className="text-center mt-20">
+           
+           <h2 className="text-2xl font-bold text-secondary">Testimonial</h2>
+
+           
+           <p className="text-xl italic">What Our Customers Says About Us</p>
+       </div>
+       </Zoom>
 
             <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 m-0 md:m-6 md:p-6'>
             {testimonial.map(testimonials => <Testimonial key={testimonials.id} info ={testimonials}></Testimonial>)}

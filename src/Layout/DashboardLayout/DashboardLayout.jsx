@@ -20,22 +20,22 @@ const DashboardLayout = () => {
           <label htmlFor="dashboard-drawer" className="drawer-overlay"></label>
           <ul className="menu p-4 w-80 h-full text-base-content">
             {/* Sidebar content here */}
-            <li>
+            <li className="my-2 font-bold">
               <Link to={'/dashboard'}>My Bookings</Link>
             </li>
-            <li>
+            <li className="my-2 font-bold">
                 {
                   isAdmin &&  <Link to={'/dashboard/allUsers'}>All Users</Link>
 
                 }
             </li>
-            <li>
+            <li className="my-2 font-bold">
                 {
                   isAdmin &&  <Link to={'/dashboard/addOffer'}>Add Offer</Link>
 
                 }
             </li>
-            <li>
+            <li className="my-2 font-bold">
                 {
                   isAdmin &&  <Link to={'/offer/manageOffer'}>Manage Offer</Link>
 

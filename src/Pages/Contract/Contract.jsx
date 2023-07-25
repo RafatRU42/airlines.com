@@ -1,11 +1,14 @@
+import { Zoom } from "react-awesome-reveal";
 import contract from "../../assets/image/contract-min.jpg";
 
 const Contract = () => {
   return (
     <div className="my-10">
+      <Zoom>
       <h2 className="text-2xl text-secondary text-center font-bold">
         Contract With Us
       </h2>
+      </Zoom>
       <div className="flex mt-12">
         <div className="hidden md:w-1/2 lg:w-1/2 md:flex">
           <img src={contract} alt="" />
@@ -19,7 +22,7 @@ const Contract = () => {
             </p>
 
             <form
-              novalidate=""
+
               action=""
               className="space-y-6 ng-untouched ng-pristine ng-valid"
             >
