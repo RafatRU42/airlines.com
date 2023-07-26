@@ -8,7 +8,7 @@ const VacationOffers = () => {
     const [offer,setOffer] = useState([])
     const [loading,setLoading] = useState(true)
 
-    fetch('http://localhost:5000/vacationOffer')
+    fetch('https://airlines-server-ckel.vercel.app/vacationOffer')
     .then(res => res.json())
     .then(data =>{
         setOffer(data)

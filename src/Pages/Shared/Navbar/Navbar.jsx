@@ -1,6 +1,8 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../../context/AuthProvider";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowRightFromBracket } from "@fortawesome/free-solid-svg-icons";
 
 const Navbar = () => {
 
@@ -23,7 +25,9 @@ const Navbar = () => {
           
           <>
       <li className="mx-1"><Link to={'/dashboard'} >Dashboard</Link></li>
-      <li className="mx-1"><Link onClick={handleSignOut} >Log Out</Link></li>
+      
+      <li className="mx-1 "><Link onClick={handleSignOut} >      <FontAwesomeIcon className="h-5" beat icon={faArrowRightFromBracket} />
+</Link></li>
           
           </>
           

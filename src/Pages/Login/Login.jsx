@@ -50,8 +50,31 @@ const Login = () => {
       <Helmet>
         <title>Airlines.com | Login</title>
       </Helmet>
+      <h2 className="m-10"><span className="font-bold">Attention Please :</span> In this project, I have Integrated user authentication using JWT to ensure secure access to task data and implemented role based access control for different user types. So you have to login as admin to access everywhere of the website. To get admin's email
+       and password <button className="btn btn-outline btn-info btn-sm" onClick={()=>window.my_modal_1.showModal()}> Click Here</button> .
+      
+       </h2>
 
-      <div className="flex items-center my-20">
+
+       {/* modal
+       
+       {/* Open the modal using ID.showModal() method */}
+<dialog id="my_modal_1" className="modal">
+  <form method="dialog" className="modal-box">
+    <h3 className="font-bold text-lg">Password And Email Of The Admin.</h3>
+    <p className="py-4"><span className="font-bold">Email:</span> rmrafat100@gmail.com</p>
+    <p className="py-4"><span className="font-bold">Password:</span>Rmrafat20</p>
+    <div className="modal-action">
+      {/* if there is a button in form, it will close the modal */}
+      <button className="btn">Close</button>
+    </div>
+  </form>
+</dialog>
+       
+       
+       
+      
+      <div className="flex items-center">
         <div className="w-full md:w-1/2">
           <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl shadow-xl">
             <h1 className="text-2xl font-bold text-center text-secondary">

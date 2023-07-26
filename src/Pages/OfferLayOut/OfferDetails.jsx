@@ -1,6 +1,5 @@
-import { useEffect } from "react";
-import { useQuery } from "react-query";
-import { useLoaderData, useParams } from "react-router-dom";
+import { Fade } from "react-awesome-reveal";
+import { useLoaderData} from "react-router-dom";
 
 const OfferDetails = () => {
     // const {titile,description,condition,image} = 
@@ -13,7 +12,7 @@ const OfferDetails = () => {
    
     // useEffect(() =>{
         
-    // fetch(`http://localhost:5000/offer/${id}`)
+    // fetch(`https://airlines-server-ckel.vercel.app/offer/${id}`)
     // .then(res => res.json())
     // .then(data => {console.log('nw',data)})
     // },[])
@@ -24,18 +23,17 @@ const OfferDetails = () => {
     // console.log('11',data);
 
     const data = useLoaderData()
-console.log('1data',data);
 
 
 // const { data1=[]} = useQuery({
 //     queryKey:['type'],
-//     queryFn:() => fetch(`http://localhost:5000/offerType/type?=${data.type}`)
+//     queryFn:() => fetch(`https://airlines-server-ckel.vercel.app/offerType/type?=${data.type}`)
 //     .then(res => res.json())
     
 // });
 
 
-    fetch(`http://localhost:5000/offerType?type=${data.type}`)
+    fetch(`https://airlines-server-ckel.vercel.app/offerType?type=${data.type}`)
     .then(res => res.json())
     .then(result =>{
         console.log('result',result);
@@ -44,7 +42,8 @@ console.log('1data',data);
 
 
     return (
-        <div className="mx-6 mb-5">
+      
+          <div className="mx-6 mb-5">
             <p className="text-3xl font-bold my-4 text-center">{data.type}</p>
             <div className=" flex justify-center">
                 <img className="w-1/4 h-1/3 justify-center" src={data.image} alt="" />
@@ -56,6 +55,7 @@ console.log('1data',data);
                 <p>{data.condition}</p>
             </div>
         </div>
+   
     );
 };
 

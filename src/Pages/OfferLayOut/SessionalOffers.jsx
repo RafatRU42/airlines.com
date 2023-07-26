@@ -10,7 +10,7 @@ const SessionalOffers = () => {
 
  
 
-    fetch('http://localhost:5000/sessionalOffer')
+    fetch('https://airlines-server-ckel.vercel.app/sessionalOffer')
     .then(res => res.json())
     .then(data => {
         setOffer(data)

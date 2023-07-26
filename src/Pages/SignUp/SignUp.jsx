@@ -89,8 +89,16 @@ const SignUp = () => {
       <Helmet>
         <title>Airlines.com | Sign Up</title>
       </Helmet>
+       
       <div className="flex items-center md:-my-12 my-0">
+    
         <div className="w-full md:w-1/2">
+        <div>
+      <h2 className="ml-8"><span className="font-bold">Attention Please:</span> Go to the<Link className="text-success font-bold" to={"/login"}>
+                {" "}
+                Login
+              </Link> page and login as admin so that you can access to the secure database and everywhere of the website.</h2>
+        </div>
           <div className="w-full mx-auto max-w-md p-8 space-y-3 rounded-xl shadow-xl">
             <h1 className="text-2xl font-bold text-center text-secondary">
               Sign Up

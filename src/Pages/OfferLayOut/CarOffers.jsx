@@ -12,7 +12,7 @@ const CarOffers = () => {
   // const [type,title,condition,description,_id] = carOffer[0]
   // console.log('type',carOffer);
 
-  fetch("http://localhost:5000/carOffer")
+  fetch("https://airlines-server-ckel.vercel.app/carOffer")
     .then((res) => res.json())
     .then((data) => {
       setCarOffer(data);

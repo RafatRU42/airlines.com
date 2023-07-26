@@ -5,7 +5,7 @@ const OfferLayOut = () => {
   // const [offer, setOffer] = useState("");
   // console.log("ddd", offer);
 
-  // fetch("http://localhost:5000/allOffers")
+  // fetch("https://airlines-server-ckel.vercel.app/allOffers")
   //   .then((res) => res.json())
   //   .then((data) => {
   //     setOffer(data[0].type);

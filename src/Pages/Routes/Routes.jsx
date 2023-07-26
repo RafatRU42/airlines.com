@@ -100,7 +100,7 @@ export const router = createBrowserRouter([
       {
         path:'/offer/offerDetails/:id',
         element:<OfferDetails></OfferDetails>,
-        loader: ({params}) => fetch(`http://localhost:5000/offer/${params.id}`)
+        loader: ({params}) => fetch(`https://airlines-server-ckel.vercel.app/offer/${params.id}`)
       },
       {
         path:'/offer/carOffers',
